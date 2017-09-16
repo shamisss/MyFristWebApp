@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<h2>My First JavaScript</h2>
+
+<button id="btnSami" type="button">Click me to display Date and Time.</button>
+
+<p id="demo"></p>
+
+
+
+
+<input type="text" id="txtSami" />
+
+
+
+<input type="checkbox"  id="chkSami">
+
+<script>
+window.onload=function(){
+var btnSamiVar = document.getElementById('btnSami');
+
+              btnSamiVar.addEventListener("click",function(){ 
+             
+             		//alert('hi i am goind to execute function sami');
+              
+              		sami();
+              });
+
+sami();
+
+}
+
+function sami()
+{
+	//alert('hi this sami from alert');
+    
+    var txtSami = document.getElementById('txtSami');
+    
+	var currentTime =txtSami.value;
+    
+    var chkSami = document.getElementById('chkSami');
+    var demo=document.getElementById('demo');
+    if (chkSami.checked==true)
+   {
+	demo.innerHTML = 'hi '+currentTime +' sami';
+    }
+    else{
+    demo.innerHTML ='hi sami';
+    }
+}
+</script>
+</body>
+</html> 
