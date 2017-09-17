@@ -1,0 +1,56 @@
+<html>
+    <head>
+    </head>
+    <body>
+        
+        <p id="para">who is the best persent in our room</p> 
+        <button type="button" id="btnans">am ready to show you!!!!!!!!</button>
+
+
+
+
+        <input type="checkbox" id="cek1">understant
+        <input type="checkbox" id="cek2">agree
+        <input type="text" id="txtin"/>
+
+        <script>
+            window.onload=function(){
+                var btnansVar=document.getElementById('btnans');
+                btnansVar.addEventListener("click",function(){
+                    room();
+                })
+                room();
+                }
+
+
+
+
+        function room(){
+            var  txtin=document.getElementById('txtin');
+            var txt=txtin.value;
+
+            var cek1=document.getElementById('cek1');
+            var cek2=document.getElementById('cek2');
+            var para=document.getElementById('para');
+            if(cek1&cek2.checked&&true)
+            {
+                para.innerHTML='who is the best persent in our room'+txt+"yes";
+
+            }   else if(cek1.checked==true)
+            {
+                para.innerHTML='did you realy know who is the best persent in our room';
+            }
+            else if(cek2.checked==true)
+            {
+                para.innerHTML='are you sure that..........';
+            }else{
+                para.innerHTML='who is the best persent in our room'
+            
+            
+            }   
+            }
+        </script>
+        </body>
+        </html>
+
+
