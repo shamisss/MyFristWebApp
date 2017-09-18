@@ -1,0 +1,71 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+    <p id="para">who is the best persent in our room</p>
+    <button type="button" id="btnans">am ready to show you!!!!!!!!</button>
+
+    <input type="checkbox" id="cek1">understant
+    <input type="checkbox" id="cek2">agree
+    <input type="text" id="txtin" />
+    <div id='divChkcollection'>
+        <input type="checkbox"><span>1 example</span>
+        <input type="checkbox"><span>2 example</span>
+        <input type="checkbox"><span>3 example</span>
+        <input type="checkbox"><span>4 example</span>
+        <input type="checkbox"><span>5 example</span>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var btnansVar = document.getElementById('btnans');
+            btnansVar.addEventListener("click", function () {
+                room();
+            });
+            //room();
+        }
+
+        function room() {
+            var txtin = document.getElementById('txtin');
+            var txt = txtin.value;
+
+            var cek1 = document.getElementById('cek1');
+            var cek2 = document.getElementById('cek2');
+            var para = document.getElementById('para');
+            if (cek1.checked && cek2.checked) {
+                para.innerHTML = 'who is the best persent in our room' + txt + "yes";
+
+            }
+            else if (cek1.checked) {
+                para.innerHTML = 'did you realy know who is the best persent in our room';
+            }
+            else if (cek2.checked) {
+                para.innerHTML = 'are you sure that..........';
+            }
+            else {
+                para.innerHTML = 'who is the best persent in our room';
+            }
+           // if (para) {
+                var divChkcollection = document.getElementById('divChkcollection');
+                var chkCollections = divChkcollection.getElementsByTagName("input");
+
+                for (var i = 0; i < chkCollections.length; i++) {
+                    if (i >= 2) {
+                        chkCollections[i].checked = true;
+                    }
+                }
+           // }
+
+            var k = 0;
+            while (k < chkCollections.length) {
+                para.innerHTML += '<br/>' + (k + 1) + ' checkbox is checked = ' + chkCollections[k].checked;
+                k++;
+            }
+        }
+    </script>
+</body>
+
+</html>
