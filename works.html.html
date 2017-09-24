@@ -1,24 +1,55 @@
 <html>
+
 <head> My Progrem
 </head>
+
 <body>
-<form>
-Name:<input type="text" value="" id="name"><br><br>
-DOB :<input type="date" value="" id="date"><br><br>
-Email:<input type="email" name="email" id="email"><br><br>
-Abour You:<br><br>
-<textarea rows="25" cols="35" id="tarea"></textarea><br><br>
-Select:     Web<input type="checkbox" value="checkbox" id="ckbox1">    Moble<input type="checkbox" value="checkbox" id="ckbox2">   Desktop<input type="checkbox" value="checkbox" id="ckbox1"><br><br>
-Agree :     yes<input type="radio" value="yes" id="y" name="yes"  checked>       No<input type="radio" value="no" id="n" name="no"><br><br>
-<input type="button" value="submit" id="submit">    <input type="reset" value="clear" id="clear">
-<script>
-    function page(){
-        var NameVar=document.getElementById('name');
-        var DateVar=document.getElementById('date');
-        var EmailVar=document.getElementById("email");
-        var TareaVar=document.getElementById("tarea");
-    }
-</script>
-</form>
+    <form>
+        <span>Name:</span><input type="text" value="" id="name">
+        <br><br> DOB :<input type="date" value="" id="date">
+        <br><br> Email:
+        <input type="email" name="email" id="email">
+        <br><br> About You:<br><br>
+        <textarea rows="25" cols="35" id="tarea"></textarea>
+        <br><br> Select: Web
+        <input type="checkbox" value="checkbox" id="ckbox1"> Moble
+        <input type="checkbox" value="checkbox" id="ckbox2"> Desktop
+        <input type="checkbox" value="checkbox" id="ckbox1"><br><br> Agree : yes
+        <input type="radio" value="yes" id="y" name="yes" checked> No
+        <input type="radio" value="no" id="n" name="no"><br><br>
+        <input type="button" value="submit" id="submit"> <input type="reset" value="clear" id="clear">
+        <p id="demo"></p>
+        <script>
+            function getElem(id) {
+                return document.getElementById(id);
+            }
+
+            function page() {
+                var NameVar = getElem('name');
+                var Name = NameVar.value;
+                var DemoVar =getElem('demo');
+
+                var DateVar = getElem('date');
+                var EmailVar = getElem("email");
+                var TareaVar = getElem("tarea");
+                var WebVar = getElem('Web');
+                var MobleVar = getElem('Mobile');
+                var Desktop = getElem('Desktop');
+
+
+                DemoVar.innerHTML = 'Name:' + Name;
+                DemoVar.innerHTML += '<br/>date:'+DateVar.value;
+            }
+
+            window.onload = function () {
+                var SubmiVar = getElem('submit');
+                
+                SubmiVar.addEventListener("click", function () {
+                    page();
+                })
+            }
+        </script>
+    </form>
 </body>
+
 </html>
