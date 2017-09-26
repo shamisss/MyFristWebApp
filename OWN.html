@@ -1,0 +1,48 @@
+<html>
+    <head style="color:chartreuse" style="font:25px">REGESTER </head>
+    <body>
+        <form>
+            <span>Name     :<input type="text" id="txtName"></span><br><br>
+            <span>BOD      :<input type="date" id="txtDate"></span><br><br>
+            <span>Email    :<input type="email" id="txtEmail"></span><br><br>
+            <span>About you:<br><textarea  id="txtArea" cols="30" rows="8" id="txtArea"></textarea></span><br><br>
+            <span>Flotform :</span><input type="checkbox" id="ckbWab">Wab
+            <input type="checkbox" id="ckbMobile"><span>Mobile</span>
+            <input type="checkbox" id="ckbDesktop"><span>Desktop</span><br><br>
+            <span>Agree    :</span><input type="radio" name="select" id="radYes"><span>Yes</span>
+            <input type="radio" name="select" id="radNo"><span>No</span><br><br>
+            <input type="button" value="sumbit" id="btnSubmit">     
+            <input type="reset" value="Clear" id="btnClear">
+            <P id="demo"></P>
+            <script>
+            function getval(id){
+                return document.getElementById('id');
+            }
+            function REGESTER(){
+                var NameVar=getval('txtName');
+                var Name=NameVar.value;
+                var Demo=getval('Demo');
+                var Date=getval('txtDate');
+                var Email=getval('Email');
+                var txtA=getval('txtArea');
+                var Web=getval('Web');
+                var Mobile=getval('Mobile');
+                var Desktop=getval('Desktop');
+                var Yes=getval('Yes');
+                var No=getval('No');
+                Deme.innerHTML ='Name'+name;
+                Demo.innerHTML+='Date'+Date;
+                 window.onload = function () {
+                var SubmiVar = getElem('submit');
+                
+                SubmiVar.addEventListener("click",
+            }
+
+
+            }
+            </script>
+            
+
+        </form>
+    </body>
+</html>
