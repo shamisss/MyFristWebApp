@@ -1,6 +1,6 @@
 <html>
 
-<head style="color:chartreuse" style="font:25px">REGESTER </head>
+<head style="color:chartreuse" style="font:25px">register </head>
 
 <body>
     <form>
@@ -21,7 +21,7 @@
                 return document.getElementById(id);
             }
 
-            function REGESTER() {
+            function register() {
                 var NameVar = getval('txtName');
                 var Name = NameVar.value;
                 var DemoVar = getval('demo');
@@ -40,7 +40,7 @@
                 if (WebVar.checked && MobileVar.checked) {
                     DemoVar.innerHTML += 'Web,Mobile'
                 }
-                else if (WebVar.checked && DesktopVar.checked) {
+                else if (WebVar.checked && DesktopVar.checked ) {
                     DemoVar.innerHTML += 'Web,Desktop';
                 }
                 else if (MobileVar.checked && DesktopVar.checked) {
@@ -50,10 +50,46 @@
 
             }
 
+            function validateData()
+            {
+                var NameVar = getval('txtName');
+                var DateVar = getval('txtDate');
+                var EmailVar = getval('txtEmail');
+                if(NameVar.value==''){
+                    alert('please fill the name');
+                    return false;
+                }
+                if(DateVar.value==''){
+                    alert('please fill the date');
+                    return false;
+                }
+                if(EmailVar.value==''){
+                    alert('please fill the email');
+                    return false;
+                }
+
+                return validateAgreement();
+            }
+
+            function validateAgreement()
+            {
+                var radYes = getval('radYes');
+                var radNo = getval('radNo');
+                if(radYes.checked || radNo.checked){
+                    return true;
+                }
+                else{
+                    alert('hey! please check either "No" or "Yes" in agreement')
+                }
+                return false;
+            }
+
             window.onload = function () {
                 var SubmiVar = getval('btnSubmit');
                 SubmiVar.addEventListener("click", function () {
-                    REGESTER();
+                    if(validateData()){
+                    register();
+                    }
                 });
             }
         </script>
