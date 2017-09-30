@@ -21,21 +21,43 @@
             function REGESTER(){
                 var NameVar=getval('txtName');
                 var Name=NameVar.value;
-                var Demo=getval('Demo');
-                var Date=getval('txtDate');
-                var Email=getval('Email');
-                var txtA=getval('txtArea');
-                var Web=getval('Web');
-                var Mobile=getval('Mobile');
-                var Desktop=getval('Desktop');
-                var Yes=getval('Yes');
-                var No=getval('No');
-                Deme.innerHTML ='Name'+name;
-                Demo.innerHTML+='Date'+Date;
-                 window.onload = function () {
-                var SubmiVar = getElem('submit');
+                var DemoVar=getval('demo');
+                var DateVar=getval('txtDate');
+                var EmailVar=getval('txtEmail');
+                var txtAVar=getval('txtArea');
+                var WebVar=getval('ckbWab');
+                var MobileVar=getval('ckbMobile');
+                var DesktopVar=getval('ckbDesktop');
+                var YesVar=getval('radYes');
+                var NoVar=getval('radNo');
+                DemeVar.innerHTML ='txtName'+Name;
+                DemoVar.innerHTM +='<br/>txtDate'+DateVar.value;
+                DemoVar.innerHTML +='<br/>txtEmail'+EmailVar.value;
+                DomeVar.innerHTML +='<br/>txtArea'+txtAVar.value;
+                if (WebVar.checked && MobileVar.checked){
+                    DomeVar.innerHTML ='Web,Mobile'
+                }
+                else if (WebVar.checked && DesktopVar.checked){
+                    DemoVar.innerHTML='Web,Desktop';
+                }
+                else if (MobileVar.checked && DesktopVar.checked){
+                    DemoVar.innerHTML ='Mobile,desktop'
+                }
+
+
                 
-                SubmiVar.addEventListener("click",
+
+                
+                
+
+                
+
+                 window.onload = function () {
+                var SubmiVar = getElem('btnsubmit');
+                
+                SubmiVar.addEventListener("click",function(){
+                    REGESTER();
+                })
             }
 
 
