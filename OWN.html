@@ -1,14 +1,31 @@
 <html>
 
-<head style="color:chartreuse" style="font:25px">register </head>
+<head>    
+    <title>Register</title>
+    <style>
+    .shamiHeader{
+        color:chartreuse;font-size:25px;background-color:black;padding:5px;margin:5px;width:150px
+    }
+    span{
+        margin:10px;
+        background: yellow;
+        color:red;
+    }
+    input,span{
+        font-size: 20px;
+
+    }
+    </style>
+</head>
 
 <body>
     <form>
+        <header class="shamiHeader">Register</header>
         <span>Name     :</span><input type="text" id="txtName"><br><br>
         <span>BOD      :</span><input type="date" id="txtDate"><br><br>
         <span>Email    :</span><input type="email" id="txtEmail"><br><br>
         <span>About you:</span><br><textarea  id="txtArea" cols="30" rows="8" id="txtArea"></textarea><br><br>
-        <span>Flotform :</span><input type="checkbox" id="ckbWab">Wab
+        <span>Platform :</span><input type="checkbox" id="ckbWab"><span>Web</span>
         <input type="checkbox" id="ckbMobile"><span>Mobile</span>
         <input type="checkbox" id="ckbDesktop"><span>Desktop</span><br><br>
         <span>Agree    :</span><input type="radio" name="select" id="radYes"><span>Yes</span>
