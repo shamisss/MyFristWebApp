@@ -1,70 +1,65 @@
 <html>
-    <head style="color:chartreuse" style="font:25px">REGESTER </head>
-    <body>
-        <form>
-            <span>Name     :<input type="text" id="txtName"></span><br><br>
-            <span>BOD      :<input type="date" id="txtDate"></span><br><br>
-            <span>Email    :<input type="email" id="txtEmail"></span><br><br>
-            <span>About you:<br><textarea  id="txtArea" cols="30" rows="8" id="txtArea"></textarea></span><br><br>
-            <span>Flotform :</span><input type="checkbox" id="ckbWab">Wab
-            <input type="checkbox" id="ckbMobile"><span>Mobile</span>
-            <input type="checkbox" id="ckbDesktop"><span>Desktop</span><br><br>
-            <span>Agree    :</span><input type="radio" name="select" id="radYes"><span>Yes</span>
-            <input type="radio" name="select" id="radNo"><span>No</span><br><br>
-            <input type="button" value="sumbit" id="btnSubmit">     
-            <input type="reset" value="Clear" id="btnClear">
-            <P id="demo"></P>
-            <script>
-            function getval(id){
-                return document.getElementById('id');
+
+<head style="color:chartreuse" style="font:25px">REGESTER </head>
+
+<body>
+    <form>
+        <span>Name     :</span><input type="text" id="txtName"><br><br>
+        <span>BOD      :</span><input type="date" id="txtDate"><br><br>
+        <span>Email    :</span><input type="email" id="txtEmail"><br><br>
+        <span>About you:</span><br><textarea  id="txtArea" cols="30" rows="8" id="txtArea"></textarea><br><br>
+        <span>Flotform :</span><input type="checkbox" id="ckbWab">Wab
+        <input type="checkbox" id="ckbMobile"><span>Mobile</span>
+        <input type="checkbox" id="ckbDesktop"><span>Desktop</span><br><br>
+        <span>Agree    :</span><input type="radio" name="select" id="radYes"><span>Yes</span>
+        <input type="radio" name="select" id="radNo"><span>No</span><br><br>
+        <input type="button" value="sumbit" id="btnSubmit">
+        <input type="reset" value="Clear" id="btnClear">
+        <P id="demo"></P>
+        <script>
+            function getval(id) {
+                return document.getElementById(id);
             }
-            function REGESTER(){
-                var NameVar=getval('txtName');
-                var Name=NameVar.value;
-                var DemoVar=getval('demo');
-                var DateVar=getval('txtDate');
-                var EmailVar=getval('txtEmail');
-                var txtAVar=getval('txtArea');
-                var WebVar=getval('ckbWab');
-                var MobileVar=getval('ckbMobile');
-                var DesktopVar=getval('ckbDesktop');
-                var YesVar=getval('radYes');
-                var NoVar=getval('radNo');
-                DemeVar.innerHTML ='txtName'+Name;
-                DemoVar.innerHTM +='<br/>txtDate'+DateVar.value;
-                DemoVar.innerHTML +='<br/>txtEmail'+EmailVar.value;
-                DomeVar.innerHTML +='<br/>txtArea'+txtAVar.value;
-                if (WebVar.checked && MobileVar.checked){
-                    DomeVar.innerHTML ='Web,Mobile'
+
+            function REGESTER() {
+                var NameVar = getval('txtName');
+                var Name = NameVar.value;
+                var DemoVar = getval('demo');
+                var DateVar = getval('txtDate');
+                var EmailVar = getval('txtEmail');
+                var txtAVar = getval('txtArea');
+                var WebVar = getval('ckbWab');
+                var MobileVar = getval('ckbMobile');
+                var DesktopVar = getval('ckbDesktop');
+                var YesVar = getval('radYes');
+                var NoVar = getval('radNo');
+                DemoVar.innerHTML = 'txtName : ' + Name;
+                DemoVar.innerHTML += '<br/>txtDate : ' + DateVar.value;
+                DemoVar.innerHTML += '<br/>txtEmail : ' + EmailVar.value;
+                DemoVar.innerHTML += '<br/>txtArea : ' + txtAVar.value;
+                if (WebVar.checked && MobileVar.checked) {
+                    DemoVar.innerHTML += 'Web,Mobile'
                 }
-                else if (WebVar.checked && DesktopVar.checked){
-                    DemoVar.innerHTML='Web,Desktop';
+                else if (WebVar.checked && DesktopVar.checked) {
+                    DemoVar.innerHTML += 'Web,Desktop';
                 }
-                else if (MobileVar.checked && DesktopVar.checked){
-                    DemoVar.innerHTML ='Mobile,desktop'
+                else if (MobileVar.checked && DesktopVar.checked) {
+                    DemoVar.innerHTML += 'Mobile,desktop'
                 }
 
 
-                
+            }
 
-                
-                
-
-                
-
-                 window.onload = function () {
-                var SubmiVar = getElem('btnsubmit');
-                
-                SubmiVar.addEventListener("click",function(){
+            window.onload = function () {
+                var SubmiVar = getval('btnSubmit');
+                SubmiVar.addEventListener("click", function () {
                     REGESTER();
-                })
+                });
             }
+        </script>
 
 
-            }
-            </script>
-            
+    </form>
+</body>
 
-        </form>
-    </body>
 </html>
