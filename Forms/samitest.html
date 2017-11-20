@@ -1,0 +1,273 @@
+<!<!DOCTYPE>
+<html>
+
+<head>
+    <title>Shami Test</title>
+    <script src="./SamiScript.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+            font-size: medium;
+            background-color: brown;
+        }
+
+        form {
+            margin-top: 50px;
+            margin-left: 35%;
+            width: 350px;
+            padding: 10px 10px 10px 50px;
+            background-color: #e69696;
+            border: 1px solid white;
+            color: rgb(22, 20, 20);
+            border-radius: 10px;
+
+        }
+
+        .lable {
+            min-width: 100px;
+            width: 100px;
+            min-height: 25px;
+            height: 25px;
+        }
+
+        .form-group {
+            padding: 5px;
+            min-height: 30px;
+
+            height: auto;
+        }
+
+        input[type=text]:focus,
+        select:focus {
+            box-shadow: 1px 1px 1px 1px red;
+        }
+
+        input[type=text],
+        select {
+            width: 300px;
+            padding: 5px;
+            height: 40px;
+            border-radius: 5px;
+            border: hidden;
+        }
+
+        textarea {
+            height: 100px;
+            min-height: 100px;
+            width: 300px;
+            max-width: 300px;
+            min-width: 300px;
+            max-height: 300px;
+            border-radius: 5px;
+        }
+
+        input[type=button] {
+            padding: 10px;
+            background-color: #132d66;
+            color: white;
+            border: hidden;
+            cursor: pointer;
+            width: 100px;
+            height: 50px;
+            border-radius: 5px;
+        }
+
+        .grdResult {
+            width: 500px;
+            border-collapse: collapse;
+            display: table;
+            border: hidden;
+        }
+
+        .grdResult tr:first-child th:first-child {
+            border-radius: 5px 0 0 0;
+        }
+
+        .grdResult tr:first-child th:last-child {
+            border-radius: 0 5px 0 0;
+        }
+
+        .grdResult tr:last-child td:first-child {
+            border-radius: 0 0 0 5px;
+        }
+
+        .grdResult tr:last-child td:last-child {
+            border-radius: 0 0 5px 0;
+        }
+
+        .grdResult tr {
+            border-radius: 5px;
+        }
+
+        .grdResult th {
+            background-color: #e69696;
+            color: white
+        }
+
+        .grdResult td,
+        .grdResult th {
+            padding: 10px;
+            border: 1px solid grey;
+        }
+
+        .grdResult td {
+            background-color: white;
+
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <input type="hidden" id="hId" value="">
+        <div class="form-group">
+            <div class="lable">Name</div>
+            <input type="text" id="txtName" />
+        </div>
+        <div class="form-group">
+            <div class="lable">Age</div>
+            <input type="text" id="txtAge" />
+        </div>
+        <div class="form-group">
+            <div class="lable">Gender</div>
+            <select id="selGender">
+                <option value="0">--Select--</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <div class="lable">Remarks</div>
+            <textarea id="taRemarks"></textarea>
+        </div>
+        <div class="form-group">
+            <center class="form-group">
+                <input type="button" id="btnSave" value="Save" />
+            </center>
+        </div>
+    </form>
+    <div id="divResult" style="text-align:centre;width:100%;display:none">
+        <div style="margin:auto;width:500px">
+            <table id='tblResult' class="grdResult">
+                <tr id='trResultHead'>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Remarks</th>
+                    <th>Action</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>
+var MyData = [];
+var btnSave;
+window.onload = function () {
+    btnSave = document.getElementById('btnSave');
+    btnSave.addEventListener('click', manipulateData)
+};
+
+function manipulateData() {
+    if (validateData()) {
+        saveData();
+        clearForm();
+        refereshResultTable();
+    }
+}
+function validateData() {
+    var name = document.getElementById("txtName").value;
+    var age = document.getElementById("txtAge").value;
+    var gender = document.getElementById("selGender").value;
+    if (name == '') {
+        alert('hey fill the name');
+        return false;
+    }
+    if (age == '' || age == '0') {
+        alert('hey fill the age');
+        return false;
+    }
+    if (isNaN(age)) {
+        alert('hey fill the age properly');
+        return false;
+    }
+    if (gender == '0') {
+        alert('hey fill the gender');
+        return false;
+    }
+    return true;
+}
+
+function saveData() {
+    var saveData = getEmptyDataObject();
+    saveData.name = document.getElementById("txtName").value;
+    saveData.age = document.getElementById("txtAge").value;
+    saveData.gender = document.getElementById("selGender").value;
+    saveData.remarks = document.getElementById("taRemarks").value;
+    MyData.push(saveData);
+}
+function clearForm() {
+    document.getElementById("txtName").value = '';
+    document.getElementById("txtAge").value = '';
+    document.getElementById("selGender").value = '0';
+    document.getElementById("taRemarks").value = '';
+}
+
+function getEmptyDataObject() {
+    var emptyData = {
+        name: '',
+        age: 0,
+        gender: '',
+        remarks: ''
+    };
+    return emptyData;
+}
+
+function refereshResultTable() {
+    var divResult = document.getElementById('divResult');
+    if (MyData.length > 0) {
+        var tblResult = document.getElementById('tblResult');
+        var tblResultBody = tblResult.children[0];
+        var noOfRows = tblResultBody.children.length;
+        for (var i = noOfRows - 1; i >= 0; i--) {
+            if (tblResultBody.children[i].id != "trResultHead") {
+                tblResultBody.children[i].remove();
+            }
+        }
+
+        var noOfData = MyData.length;
+        for (i = 0; i < noOfData; i++) {
+            //
+            var trTmp = document.createElement('tr');
+            //
+            var tdName = document.createElement('td');
+            tdName.innerHTML = MyData[i].name;
+            trTmp.appendChild(tdName);
+            //
+            var tdAge = document.createElement('td');
+            tdAge.innerHTML = MyData[i].age;
+            trTmp.appendChild(tdAge);
+            //
+            var tdGender = document.createElement('td');
+            tdGender.innerHTML = MyData[i].gender;
+            trTmp.appendChild(tdGender);
+            //
+            var tdRemarks = document.createElement('td');
+            tdRemarks.innerHTML = MyData[i].remarks;
+            trTmp.appendChild(tdRemarks);
+            //
+            var tdAction = document.createElement('td');
+            tdAction.innerHTML = '<a href="#">Edit</a>&nbsp;<a href="#">Delete</a>';
+            trTmp.appendChild(tdAction);
+            //
+            tblResultBody.appendChild(trTmp);
+        }
+
+        divResult.style.display = 'block';
+    }
+    else {
+        divResult.style.display = 'none';
+    }
+}
